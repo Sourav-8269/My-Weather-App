@@ -15,6 +15,7 @@ let Nagpur={};
 
 const getWeather=(city)=>{
 	cityName.innerHTML=city;
+	
 	fetch(`https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=${city}`, options)
 		.then(response => response.json())
 		.then(response => {
@@ -43,6 +44,7 @@ const getWeather=(city)=>{
 				Bosplace();
 			}
 			// console.log(response)
+			// console.log(city)
 			// console.log(Kolkata)
 			cloud_pct.innerHTML=response.cloud_pct
 			feels_like.innerHTML=response.feels_like
@@ -56,7 +58,6 @@ const getWeather=(city)=>{
 			temp2.innerHTML=response.temp
 			wind_speed.innerHTML=response.wind_speed
 			wind_speed2.innerHTML=response.wind_speed
-			wind_degrees.innerHTML=response.wind_degrees
 		
 		})
 		.catch(err => console.error(err));
@@ -140,13 +141,16 @@ const Bosplace=()=>{
 	Bosspeed.innerHTML=Boston.wind_speed;
 }
 
-getWeather("Kolkata")
-getWeather("Madras")
-getWeather("Chennai")
 getWeather("Seattle");
 getWeather("Boston")
+getWeather("Kolkata")
 getWeather("Nagpur");
-getWeather("Delhi")
+getWeather("Chennai")
+getWeather("Madras")
+
+setTimeout(()=>{
+	getWeather("Delhi")
+},1500)
 // console.log(Kolkata)
 
 
